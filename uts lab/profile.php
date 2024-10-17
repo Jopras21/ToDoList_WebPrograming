@@ -57,7 +57,7 @@ $photo = $user['photo'] ?: "photos/default.png";
                 <button type="submit" class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-700">Edit Profile</button>
             </form>
 
-            <form method="POST" action="login.php" class="inline">
+            <form method="POST" action="logout.php" class="inline">
                 <button type="submit" name="logout" class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-700" onclick="return confirm('Are you sure you want to logout?');">Logout</button>
             </form>
         </div>

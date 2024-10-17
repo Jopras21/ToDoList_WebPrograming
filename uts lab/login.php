@@ -1,13 +1,6 @@
 <?php
 session_start();
 
-if (isset($_GET['logout'])) {
-    session_unset(); 
-    session_destroy();
-    header("Location: login.php");
-    exit();
-}
-
 require 'connect.php'; 
 
 $error_message = ''; 
@@ -21,7 +14,7 @@ if (isset($_POST['login'])) {
     $user = $stmt->fetch();
 
     if (!$user) {
-        $error_message = "Email belum terdaftar."; // Peringatan jika email tidak ditemukan
+        $error_message = "Email belum terdaftar."; 
     } elseif (password_verify($password, $user['password'])) {
         $_SESSION['user_id'] = $user['id']; 
         header("Location: index.php"); 
