@@ -8,16 +8,7 @@ if (isset($_GET['logout'])) {
     exit();
 }
 
-$host = 'localhost';
-$dbname = 'uts';
-$username = 'root';
-
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("Connection failed: " . $e->getMessage());
-}
+require 'connect.php'; 
 
 $error_message = ''; 
 
@@ -29,7 +20,9 @@ if (isset($_POST['login'])) {
     $stmt->execute([$email]);
     $user = $stmt->fetch();
 
-    if ($user && password_verify($password, $user['password'])) {
+    if (!$user) {
+        $error_message = "Email belum terdaftar."; // Peringatan jika email tidak ditemukan
+    } elseif (password_verify($password, $user['password'])) {
         $_SESSION['user_id'] = $user['id']; 
         header("Location: index.php"); 
         exit();

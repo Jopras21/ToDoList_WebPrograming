@@ -1,20 +1,11 @@
 <?php
 session_start();
 
+require 'connect.php'; 
+
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
-}
-
-$host = 'localhost';
-$dbname = 'uts';
-$username = 'root';
-
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch(PDOException $e) {
-    die("Connection failed: " . $e->getMessage());
 }
 
 $user_id = $_SESSION['user_id'];

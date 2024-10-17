@@ -6,16 +6,7 @@ if (!isset($_SESSION['user_id'])) {
     exit(); 
 }
 
-$host = 'localhost';
-$dbname = 'uts';
-$username = 'root';
-
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch(PDOException $e) {
-    die("Connection failed: " . $e->getMessage());
-}
+require 'connect.php'; 
 
 $search_query = isset($_POST['search_query']) ? $_POST['search_query'] : '';
 $status_filter = isset($_POST['status_filter']) ? $_POST['status_filter'] : 'not_done';

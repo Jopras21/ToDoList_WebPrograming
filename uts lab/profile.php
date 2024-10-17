@@ -6,16 +6,7 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-$host = 'localhost';
-$dbname = 'uts';
-$username = 'root';
-
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch(PDOException $e) {
-    die("Connection failed: " . $e->getMessage());
-}
+require 'connect.php'; 
 
 $user_id = $_SESSION['user_id'];
 $stmt = $pdo->prepare("SELECT username, email, age, dob, address, gender, hobbies, photo FROM users WHERE id = ?");
