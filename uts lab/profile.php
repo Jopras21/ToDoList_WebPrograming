@@ -37,34 +37,37 @@ $photo = $user['photo'] ?: "photos/default.png";
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100">
-    <div class="container mx-auto p-4 max-w-md"> 
-        <h1 class="text-2xl font-bold mb-4 text-center">Your Profile</h1>
+    <div class="container mx-auto p-6 max-w-lg">
+        <h1 class="text-3xl font-bold mb-6 text-center">Your Profile</h1>
 
-        <div class="text-center mb-4">
-            <img src="<?php echo $photo; ?>" alt="Profile Photo" class="w-24 h-24 rounded-full mx-auto">
+        <div class="text-center mb-6">
+            <img src="<?php echo $photo; ?>" alt="Profile Photo" class="w-32 h-32 rounded-full border-4 border-blue-500 mx-auto shadow-lg">
         </div>
 
-        <p class="text-center"><strong>Username:</strong> <?php echo htmlspecialchars($username); ?></p>
-        <p class="text-center"><strong>Email:</strong> <?php echo htmlspecialchars($email); ?></p>
-        <p class="text-center"><strong>Age:</strong> <?php echo htmlspecialchars($age); ?></p>
-        <p class="text-center"><strong>Date of Birth:</strong> <?php echo htmlspecialchars($dob); ?></p>
-        <p class="text-center"><strong>Address:</strong> <?php echo htmlspecialchars($address); ?></p>
-        <p class="text-center"><strong>Gender:</strong> <?php echo htmlspecialchars($gender); ?></p>
-        <p class="text-center"><strong>Hobbies:</strong> <?php echo htmlspecialchars($hobbies); ?></p>
+        <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h2 class="text-2xl font-semibold mb-4">User Information</h2>
+            <p class="text-gray-700"><strong>Username:</strong> <?php echo htmlspecialchars($username); ?></p>
+            <p class="text-gray-700"><strong>Email:</strong> <?php echo htmlspecialchars($email); ?></p>
+            <p class="text-gray-700"><strong>Age:</strong> <?php echo htmlspecialchars($age); ?></p>
+            <p class="text-gray-700"><strong>Date of Birth:</strong> <?php echo htmlspecialchars($dob); ?></p>
+            <p class="text-gray-700"><strong>Address:</strong> <?php echo htmlspecialchars($address); ?></p>
+            <p class="text-gray-700"><strong>Gender:</strong> <?php echo htmlspecialchars($gender); ?></p>
+            <p class="text-gray-700"><strong>Hobbies:</strong> <?php echo htmlspecialchars($hobbies); ?></p>
+        </div>
 
         <div class="mt-4 text-center">
             <form method="GET" action="edit_profile.php" class="inline">
-                <button type="submit" class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-700">Edit Profile</button>
+                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-300">Edit Profile</button>
             </form>
 
             <form method="POST" action="logout.php" class="inline">
-                <button type="submit" name="logout" class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-700" onclick="return confirm('Are you sure you want to logout?');">Logout</button>
+                <button type="submit" name="logout" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700 transition duration-300" onclick="return confirm('Are you sure you want to logout?');">Logout</button>
             </form>
         </div>
 
         <div class="mt-4 text-center">
             <form method="GET" action="index.php"> 
-                <button type="submit" class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-700">Back to Dashboard</button>
+                <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-700 transition duration-300">Back to Dashboard</button>
             </form>
         </div>
     </div>

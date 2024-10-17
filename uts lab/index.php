@@ -3,7 +3,7 @@ session_start();
 
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
-    exit(); 
+    exit();
 }
 
 require 'connect.php'; 
@@ -91,11 +91,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['done_id'])) {
             <?php foreach ($todos as $todo): ?>
                 <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"> 
                     <h2 class="text-xl font-semibold"><?= htmlspecialchars($todo['title']) ?></h2>
-                    <p class="text-gray-600"><?= htmlspecialchars($todo['description']) ?></p>
                     <div class="mt-4 flex justify-between"> 
                         <form action="" method="post" class="inline">
                             <input type="hidden" name="done_id" value="<?= $todo['id'] ?>">
                             <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-700">Done</button>
+                        </form>
+                        <form action="view.php" method="get" class="inline">
+                            <input type="hidden" name="todo_id" value="<?= $todo['id'] ?>">
+                            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">View</button>
                         </form>
                         <form action="" method="post" class="inline">
                             <input type="hidden" name="todo_id" value="<?= $todo['id'] ?>">
