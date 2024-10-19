@@ -1,34 +1,27 @@
-<?php 
+<?php
 session_start();
+
 require 'connect.php'; 
 
 $error_message = ''; 
 
-if (empty($_SESSION['csrf_token'])) {
-    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
-}
-
 if (isset($_POST['login'])) {
-    if (!hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
-        die("CSRF token validation failed");
-    }
-
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $stmt = $pdo->prepare("SELECT * FROM users WHERE email = ?");
+    $stmt = $pdo->prepare("SELECT id, password FROM users WHERE email = ?");
     $stmt->execute([$email]);
     $user = $stmt->fetch();
 
     if (!$user) {
-        $error_message = "Email belum terdaftar."; 
+        $error_message = "Invalid email or password."; 
     } elseif (password_verify($password, $user['password'])) {
-        session_regenerate_id(true);
+        session_regenerate_id(true);  
         $_SESSION['user_id'] = $user['id']; 
         header("Location: index.php"); 
         exit();
     } else {
-        $error_message = "Email atau password salah."; 
+        $error_message = "Invalid email or password."; 
     }
 }
 ?>
@@ -51,12 +44,11 @@ if (isset($_POST['login'])) {
             <?php endif; ?>
             <h1 class="text-2xl font-bold mb-6 text-center">Sign in</h1>
             <form method="POST" action="">
-                <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
                 <div class="mb-4">
                     <input type="email" name="email" placeholder="Email or Phone" required class="border border-gray-300 p-2 w-full rounded" value="<?= isset($_POST['email']) ? htmlspecialchars($_POST['email']) : '' ?>">
                 </div>
                 <div class="mb-4">
-                    <input type="password" name="password" placeholder="Password" required class="border border-gray-300 p-2 w-full rounded" autocomplete="new-password">
+                    <input type="password" name="password" placeholder="Password" required class="border border-gray-300 p-2 w-full rounded" autocomplete="current-password">
                 </div>
                 <button type="submit" name="login" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 w-full">Sign in</button>
             </form>
