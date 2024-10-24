@@ -36,23 +36,23 @@ $photo = $user['photo'] ?: "photos/default.png";
     <title>Your Profile</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100">
+<body class="bg-gray-900">
     <div class="container mx-auto p-6 max-w-lg">
-        <h1 class="text-3xl font-bold mb-6 text-center">Your Profile</h1>
+        <h1 class="text-3xl font-bold mb-6 text-center text-white">Your Profile</h1>
 
         <div class="text-center mb-6">
             <img src="<?php echo $photo; ?>" alt="Profile Photo" class="w-32 h-32 rounded-full border-4 border-blue-500 mx-auto shadow-lg">
         </div>
 
-        <div class="bg-white p-6 rounded-lg shadow-md mb-6">
-            <h2 class="text-2xl font-semibold mb-4">User Information</h2>
-            <p class="text-gray-700"><strong>Username:</strong> <?php echo htmlspecialchars($username); ?></p>
-            <p class="text-gray-700"><strong>Email:</strong> <?php echo htmlspecialchars($email); ?></p>
-            <p class="text-gray-700"><strong>Age:</strong> <?php echo htmlspecialchars($age); ?></p>
-            <p class="text-gray-700"><strong>Date of Birth:</strong> <?php echo htmlspecialchars($dob); ?></p>
-            <p class="text-gray-700"><strong>Address:</strong> <?php echo htmlspecialchars($address); ?></p>
-            <p class="text-gray-700"><strong>Gender:</strong> <?php echo htmlspecialchars($gender); ?></p>
-            <p class="text-gray-700"><strong>Hobbies:</strong> <?php echo htmlspecialchars($hobbies); ?></p>
+        <div class="bg-gray-800 p-6 rounded-lg shadow-md mb-6">
+            <h2 class="text-2xl font-semibold mb-4 text-white">User Information</h2>
+            <p class="text-gray-300"><strong>Username:</strong> <?php echo htmlspecialchars($username); ?></p>
+            <p class="text-gray-300"><strong>Email:</strong> <?php echo htmlspecialchars($email); ?></p>
+            <p class="text-gray-300"><strong>Age:</strong> <?php echo htmlspecialchars($age); ?></p>
+            <p class="text-gray-300"><strong>Date of Birth:</strong> <?php echo htmlspecialchars($dob); ?></p>
+            <p class="text-gray-300"><strong>Address:</strong> <?php echo htmlspecialchars($address); ?></p>
+            <p class="text-gray-300"><strong>Gender:</strong> <?php echo htmlspecialchars($gender); ?></p>
+            <p class="text-gray-300"><strong>Hobbies:</strong> <?php echo htmlspecialchars($hobbies); ?></p>
         </div>
 
         <div class="mt-4 text-center">

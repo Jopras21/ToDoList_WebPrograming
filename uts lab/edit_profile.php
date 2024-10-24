@@ -94,49 +94,49 @@ if (isset($_POST['updateProfile'])) {
     <title>Edit Profile</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100">
+<body class="bg-gray-900"> 
     <div class="container mx-auto p-4 max-w-lg">
-        <h1 class="text-2xl font-bold mb-4 text-center">Edit Profile</h1>
+        <h1 class="text-2xl font-bold mb-4 text-center text-white">Edit Profile</h1> 
 
-        <form method="POST" action="edit_profile.php" enctype="multipart/form-data" class="bg-white p-6 rounded shadow-md">
+        <form method="POST" action="edit_profile.php" enctype="multipart/form-data" class="bg-gray-800 p-6 rounded shadow-md"> 
             <div class="mb-4">
-                <label for="username" class="block text-sm font-medium text-gray-700">Username:</label>
-                <input type="text" name="username" value="<?php echo htmlspecialchars($username); ?>" required class="border border-gray-300 rounded p-2 w-full">
+                <label for="username" class="block text-sm font-medium text-gray-300">Username:</label> 
+                <input type="text" name="username" value="<?php echo htmlspecialchars($username); ?>" required class="border border-gray-600 bg-gray-700 text-white rounded p-2 w-full">
             </div>
             <div class="mb-4">
-                <label for="email" class="block text-sm font-medium text-gray-700">Email:</label>
-                <input type="email" name="email" value="<?php echo htmlspecialchars($email); ?>" class="border border-gray-300 rounded p-2 w-full">
+                <label for="email" class="block text-sm font-medium text-gray-300">Email:</label>
+                <input type="email" name="email" value="<?php echo htmlspecialchars($email); ?>" class="border border-gray-600 bg-gray-700 text-white rounded p-2 w-full">
             </div>
             <div class="mb-4">
-                <label for="password" class="block text-sm font-medium text-gray-700">New Password (leave blank to keep current):</label>
-                <input type="password" name="password" placeholder="New password" class="border border-gray-300 rounded p-2 w-full">
+                <label for="password" class="block text-sm font-medium text-gray-300">New Password (leave blank to keep current):</label> 
+                <input type="password" name="password" placeholder="New password" class="border border-gray-600 bg-gray-700 text-white rounded p-2 w-full">
             </div>
             <div class="mb-4">
-                <label for="age" class="block text-sm font-medium text-gray-700">Age:</label>
-                <input type="number" name="age" value="<?php echo htmlspecialchars($age); ?>" class="border border-gray-300 rounded p-2 w-full">
+                <label for="age" class="block text-sm font-medium text-gray-300">Age:</label>
+                <input type="number" name="age" value="<?php echo htmlspecialchars($age); ?>" class="border border-gray-600 bg-gray-700 text-white rounded p-2 w-full">
             </div>
             <div class="mb-4">
-                <label for="dob" class="block text-sm font-medium text-gray-700">Date of Birth:</label>
-                <input type="date" name="dob" value="<?php echo htmlspecialchars($dob); ?>" class="border border-gray-300 rounded p-2 w-full">
+                <label for="dob" class="block text-sm font-medium text-gray-300">Date of Birth:</label>
+                <input type="date" name="dob" value="<?php echo htmlspecialchars($dob); ?>" class="border border-gray-600 bg-gray-700 text-white rounded p-2 w-full">
             </div>
             <div class="mb-4">
-                <label for="address" class="block text-sm font-medium text-gray-700">Address:</label>
-                <input type="text" name="address" value="<?php echo htmlspecialchars($address); ?>" class="border border-gray-300 rounded p-2 w-full">
+                <label for="address" class="block text-sm font-medium text-gray-300">Address:</label>
+                <input type="text" name="address" value="<?php echo htmlspecialchars($address); ?>" class="border border-gray-600 bg-gray-700 text-white rounded p-2 w-full">
             </div>
             <div class="mb-4">
-                <label for="gender" class="block text-sm font-medium text-gray-700">Gender:</label>
-                <select name="gender" required class="border border-gray-300 rounded p-2 w-full">
+                <label for="gender" class="block text-sm font-medium text-gray-300">Gender:</label>
+                <select name="gender" required class="border border-gray-600 bg-gray-700 text-white rounded p-2 w-full">
                     <option value="Male" <?php if ($gender == 'Male') echo 'selected'; ?>>Male</option>
                     <option value="Female" <?php if ($gender == 'Female') echo 'selected'; ?>>Female</option>
                 </select>
             </div>
             <div class="mb-4">
-                <label for="hobbies" class="block text-sm font-medium text-gray-700">Hobbies:</label>
-                <input type="text" name="hobbies" value="<?php echo htmlspecialchars($hobbies); ?>" class="border border-gray-300 rounded p-2 w-full">
+                <label for="hobbies" class="block text-sm font-medium text-gray-300">Hobbies:</label>
+                <input type="text" name="hobbies" value="<?php echo htmlspecialchars($hobbies); ?>" class="border border-gray-600 bg-gray-700 text-white rounded p-2 w-full">
             </div>
             <div class="mb-4">
-                <label for="photo" class="block text-sm font-medium text-gray-700">Profile Photo:</label>
-                <input type="file" name="photo" accept="image/*" class="border border-gray-300 rounded p-2 w-full">
+                <label for="photo" class="block text-sm font-medium text-gray-300">Profile Photo:</label>
+                <input type="file" name="photo" accept="image/*" class="border border-gray-600 bg-gray-700 text-white rounded p-2 w-full">
             </div>
             <button type="submit" name="updateProfile" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700" onclick="return confirm('Are you sure you want to update profile?');">Update Profile</button>
         </form>
