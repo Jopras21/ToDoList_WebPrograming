@@ -52,7 +52,14 @@ if (isset($_POST['login'])) {
                 </div>
                 <button type="submit" name="login" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 w-full">Sign in</button>
             </form>
-            <p class="mt-4 text-center">Don't have an account? <a href="signup.php" class="text-blue-500 hover:underline">Sign up here</a></p>
+
+            <p class="mt-4 text-center">
+                <a href="forgot_password.php" class="text-blue-500 hover:underline">Lupa password?</a>
+            </p>
+
+            <p class="mt-4 text-center">Don't have an account? 
+                <a href="signup.php" class="text-blue-500 hover:underline">Sign up here</a>
+            </p>
         </div>
     </div>
 </body>
